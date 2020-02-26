@@ -1,16 +1,5 @@
 import random
 
-print('''
-Passwort Generator - Version 0.3
-----------------------
- Für: IMMAC Holding AG
-----------------------
-   Autor: Ugur Koc
-----------------------
-  Stand: 17.01.2020
-----------------------
-''')
-
 chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?=#@$%<>^&*().,' #Richtlinie: Groß- und Kleinschreibung, Zahlen und Sonderzeichen
 
 number = input('Wieviele Passwörter sollen generiert werden? ') #Anzahl der Passwörter
