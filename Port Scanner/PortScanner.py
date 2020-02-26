@@ -1,18 +1,30 @@
- #!/usr/bin/python3
-
+import threading
 import socket
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.settimeout(5)
+print('''
+Portscanner 0.1
+''')
 
-host = input("Please enter the IP you want to scan: ")
-port = int(input("Please enter the port you want to scan: "))
+target = input("Webseite oder IP: ")
 
+def portscan(port):
 
-def portScanner(port):
-    if s.connect_ex((host, port)):
-        print("The port is closed")
-    else:
-        print("The port is open")
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(0.5)#
 
-portScanner(port)
+    try:
+        con = s.connect((target,port))
+        print('Fertig! Folgende Ports sind offen:')
+
+        print('Port :',port)
+
+        con.close()
+    except:
+        pass
+r = 1
+for x in range(1,100):
+
+    t = threading.Thread(target=portscan,kwargs={'port':r}) 
+
+    r += 1
+    t.start()
